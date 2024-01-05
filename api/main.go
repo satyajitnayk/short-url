@@ -11,6 +11,8 @@ import (
 	"github.com/satyajitnayk/short-url/routes"
 )
 
+// gofiber is verymuch similar to express in nodejs
+
 func setupRoutes(app *fiber.App) {
 	app.Get("/:url", routes.ResolveURL)
 	app.Post("/api/v1/", routes.ShortenURL)
