@@ -14,9 +14,13 @@ func ResolveURL(c *fiber.Ctx) error {
 
 	value, err := r.Get(database.Ctx, url).Result()
 	if err == redis.Nil {
-		return c.Status(fiber.StatusNotFound).JSON(fiber.Map{"error": "data not found in DB"})
+		return c.Status(fiber.StatusNotFound).JSON(fiber.Map{
+			"error": "data not found in DB",
+		})
 	} else if err != nil {
-		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{"error": "cannot connect to DB"})
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"error": "cannot connect to DB",
+		})
 	}
 
 	rInr := database.CreateClient(1)
