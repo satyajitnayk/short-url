@@ -14,7 +14,12 @@ RUN go build -o main .
 
 FROM alpine
 
-RUN adduser -S -D -H /app appuser
+RUN adduser -S -D -H -h /app appuser
+# -S: Create a system user.
+# -D: Do not assign a password.
+# -H: Do not create a home directory.
+# -h /app: Set the home directory for the user to /app.
+# appuser: The username.
 
 USER appuser
 
