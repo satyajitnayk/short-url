@@ -5,6 +5,10 @@ A URL Shortener service written using Go, Redis &amp; docker
 ## Build docker image
 
 ```cmd
+# to rebuild docker image
+docker-compose up --build
+
+# to run docker in background
 docker-compose up -d
 ```
 
